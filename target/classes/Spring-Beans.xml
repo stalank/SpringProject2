@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="employee" class="org.capgemini.pojo.Employee" scope="prototype" init-method="setup" destroy-method="destroy"></bean><!-- 
+		total 4 types of scope *singleton(one object , default)*prototype(every time getBean 
+		is called a object is created)*request*session(used in web-application) -->
+	<bean id="dao" class="org.capgemini.dao.EmployeeDao"></bean>
+	<bean id="service" class="org.capgemini.service.EmployeeService"
+		autowire="byName">
+		<!-- autowiring can be done by name , by type and constructor -->
+
+		<!-- <property name="dao" ref = "dao"></property> -->
+
+	</bean>
+</beans>
